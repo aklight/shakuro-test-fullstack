@@ -1,0 +1,20 @@
+{
+  "name": "fullstack-test",
+  "version": "1.0.0",
+  "description": "test task for shakuro company",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.4",
+    "validator": "^10.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aleksandr Kudriavtsev",
+  "license": "MIT"
+}
