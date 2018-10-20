@@ -10,6 +10,10 @@ const port = process.env.PORT || 3000;
 
 const db = require("./config/keys").mongoURI;
 
+// All available routes
+
+const users = require("./routes/api/users.js");
+
 // Connect to MongoDB
 
 mongoose
@@ -27,6 +31,6 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.json("Hello world!"));
+app.use("/users", users);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
