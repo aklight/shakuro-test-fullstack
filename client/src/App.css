@@ -1,0 +1,32 @@
+.landing {
+  position: relative;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+
+.landing-inner {
+  padding-top: 120px;
+}
+
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+
+.login {
+  height: 100vh;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
