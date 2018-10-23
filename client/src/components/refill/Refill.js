@@ -50,7 +50,7 @@ class Refill extends Component {
                 Current balance of your account:{" "}
                 <strong>
                   {" "}
-                  {this.props.currentBalance[`${provider.toLowerCase()}`]}
+                  {this.props.currentBalance[`${provider.toLowerCase()}`]} $
                 </strong>
               </p>
               <form onSubmit={this.onSubmit}>
