@@ -12,9 +12,8 @@ class Providers extends Component {
 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchProviders(this.props.history);
-    console.log(this.props.providers)
   }
 
   renderProviders() {
