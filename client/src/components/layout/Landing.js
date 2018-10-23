@@ -25,7 +25,7 @@ class Landing extends Component {
                     </Link>
                   </div>
                 )}
-                {this.props.isRefilled && (
+                {this.props.isRefilled && this.props.isAuth && (
                   <div>
                     <p className="text-success">
                       {`Your ${this.props.provider} account was refilled with ${this.props.amount} $`}
