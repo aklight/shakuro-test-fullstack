@@ -57,12 +57,24 @@
   cursor: pointer;
 }
 
+img:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
 @media screen and (max-width: 600px) {
+  .providers {
+    margin-top: 30px;
+    margin-bottom: -40px;
+  }
   .providers-list {
     flex-direction: column;
+    width: 150px;
+    margin: auto
   }
   .providers-list__item img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
   }
 }

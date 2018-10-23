@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import InputMask from "react-input-mask";
 import { connect } from "react-redux";
 import classnames from "classnames";
-import { updateBalance } from "../../actions/refillActions.js";
 import PropTypes from "prop-types";
+
+import { updateBalance } from "../../actions/refillActions.js";
+
 
 class Refill extends Component {
   constructor() {
@@ -38,6 +40,7 @@ class Refill extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
+
   render() {
     const { provider } = this.props.match.params;
     return (

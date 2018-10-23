@@ -52,7 +52,6 @@ const mapStateToProps = state => ({
 
 Landing.propTypes = {
   provider: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
   isRefilled: PropTypes.bool.isRequired,
   isAuth: PropTypes.bool.isRequired,
 };

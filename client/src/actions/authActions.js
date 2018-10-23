@@ -13,7 +13,6 @@ export const loginUser = (userData, history) => dispatch => {
       history.push("/providers");
     })
     .catch(err => {
-      console.log(err);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data

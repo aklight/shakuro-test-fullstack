@@ -45,7 +45,6 @@ router.post("/", (req, res) => {
               throw err;
             });
           break;
-
       }
     })
     .then(_ => {

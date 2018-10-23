@@ -6,7 +6,7 @@ import {
 
 import axios from "axios";
 
-// Update balace of certain provider for current user
+// Update balance of certain provider for current user
 
 export const updateBalance = (dataToUpdate, history) => dispatch => {
   dispatch({ type: REFILL_BALANCE_START });
@@ -15,7 +15,6 @@ export const updateBalance = (dataToUpdate, history) => dispatch => {
     .post("/refill", dataToUpdate)
     .then(res => {
       dispatch({ type: REFILL_BALANCE_SUCCESS, payload: res.data });
-      console.log(res.data);
       history.push("/");
     })
     .catch(err => {

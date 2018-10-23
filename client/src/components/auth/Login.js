@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+
 import { loginUser } from "../../actions/authActions.js";
 
 class Login extends Component {
@@ -29,6 +32,12 @@ class Login extends Component {
     this.props.loginUser(user, this.props.history);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   render() {
     return (
       <div className="login">
@@ -43,22 +52,36 @@ class Login extends Component {
                 <div className="form-group">
                   <input
                     type="email"
-                    className="form-control form-control-lg"
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": this.state.errors.email
+                    })}
                     placeholder="Email Address"
                     name="email"
                     value={this.state.email}
                     onChange={this.onChange}
                   />
+                  {this.state.errors.email && (
+                    <div className="invalid-feedback">
+                      {this.state.errors.email}
+                    </div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
                     type="password"
-                    className="form-control form-control-lg"
+                    className={classnames("form-control form-control-lg", {
+                      "is-invalid": this.state.errors.password
+                    })}
                     placeholder="Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChange}
                   />
+                  {this.state.errors.password && (
+                    <div className="invalid-feedback">
+                      {this.state.errors.password}
+                    </div>
+                  )}
                 </div>
                 <button type="submit" className="btn btn-info btn-block mt-4">
                   Submit
@@ -71,8 +94,18 @@ class Login extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  currentUserId: state.auth.user.id,
+  currentBalance: state.auth.user.balances,
+  errors: state.errors
+});
+
+Login.propTypes = {
+  errors: PropTypes.object.isRequired
+};
+
 
 export default connect(
-  null,
+  mapStateToProps,
   { loginUser }
 )(withRouter(Login));
