@@ -1,6 +1,6 @@
-const dbLogin = "admin";
-const dbPassword = "admin123456";
 
-module.exports = {
-  mongoURI: `mongodb://${dbLogin}:${dbPassword}@ds237373.mlab.com:37373/shakuro-test`
-};
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./keys_prod')
+} else {
+  module.exports = require('./keys_dev')
+}

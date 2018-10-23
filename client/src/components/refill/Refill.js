@@ -3,6 +3,7 @@ import InputMask from "react-input-mask";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { updateBalance } from "../../actions/refillActions.js";
+import PropTypes from "prop-types";
 
 class Refill extends Component {
   constructor() {
@@ -109,6 +110,12 @@ const mapStateToProps = state => ({
   currentBalance: state.auth.user.balances,
   errors: state.errors
 });
+
+Refill.PropTypes = {
+  currentUserId: PropTypes.string.isRequired,
+  currentBalance: PropTypes.number.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 export default connect(
   mapStateToProps,

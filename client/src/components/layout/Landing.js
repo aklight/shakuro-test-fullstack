@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class Landing extends Component {
   render() {
@@ -24,6 +25,15 @@ class Landing extends Component {
                     </Link>
                   </div>
                 )}
+                {this.props.isRefilled && (
+                  <div>
+                    <p className="text-success">
+                      {`Your ${this.props.provider} account was refilled with ${this.props.amount} $`}
+                    </p>
+                    <hr />
+                    Thank you for choosing our service!
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -34,8 +44,18 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuth: state.auth.isAuthenticated
+  isAuth: state.auth.isAuthenticated,
+  isRefilled: state.refilling.isRefilled,
+  amount: state.refilling.amount,
+  provider: state.refilling.provider
 });
+
+Landing.PropTypes = {
+  provider: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  isRefilled: PropTypes.bool.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+};
 
 export default connect(
   mapStateToProps,
