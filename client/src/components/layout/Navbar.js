@@ -1,8 +1,28 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions.js";
 
 class Navbar extends Component {
   render() {
+    const { logoutUser } = this.props;
+
+    const login = (
+      <li className="nav-item">
+        <Link className="nav-link" to="/login">
+          Login
+        </Link>
+      </li>
+    );
+
+    const logout = (
+      <li onClick={logoutUser} className="nav-item">
+        <Link className="nav-link" to="/">
+          Logout
+        </Link>
+      </li>
+    );
+
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-info mb-4">
         <div className="container">
@@ -20,11 +40,7 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
+              {this.props.isAuth ? logout : login}
             </ul>
           </div>
         </div>
@@ -32,5 +48,11 @@ class Navbar extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuthenticated
+});
 
-export default Navbar;
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Navbar);

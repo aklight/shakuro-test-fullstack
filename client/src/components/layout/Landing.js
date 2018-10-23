@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Landing extends Component {
   render() {
@@ -10,14 +11,19 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">Payment terminal</h1>
-                <p className="lead">
-                  {" "}
-                  Please, log in if you want yo use our service.
-                </p>
-                <hr />
-                <Link to="/login" className="btn btn-lg btn-info">
-                  Login
-                </Link>
+
+                {!this.props.isAuth && (
+                  <div>
+                    <p className="lead">
+                      {" "}
+                      Please, log in if you want to use our service.
+                    </p>
+                    <hr />
+                    <Link to="/login" className="btn btn-lg btn-info">
+                      Login
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -27,4 +33,11 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Landing);

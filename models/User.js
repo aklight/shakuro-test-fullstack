@@ -26,10 +26,6 @@ const UserSchema = new Schema({
       required: true
     }
   },
-  isLoggedIn: {
-    type: Boolean,
-    default: false
-  },
   date: {
     type: Date,
     default: Date.now

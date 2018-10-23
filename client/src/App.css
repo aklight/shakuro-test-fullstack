@@ -30,3 +30,39 @@
   margin-top: 100px;
   margin-bottom: -100px;
 }
+
+.refill {
+  height: 100vh;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+
+.providers {
+  height: 100vh;
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+
+.providers-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.providers-list__item {
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .providers-list {
+    flex-direction: column;
+  }
+  .providers-list__item img {
+    width: 40%;
+    height: 40%;
+  }
+}

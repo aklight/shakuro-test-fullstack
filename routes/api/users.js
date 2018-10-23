@@ -5,19 +5,8 @@ const router = express.Router();
 const validateLoginInput = require("../../validation/login.js");
 
 const User = require("../../models/User.js");
-const Provider = require("../../models/Provider.js");
 
-// @route   GET api/users/
-// @desc    Main page
-// @access  Private
-
-router.get("/", (req, res) => {
-  Provider.find()
-    .then(provider => res.json(provider))
-    .catch(err => console.log(err));
-});
-
-// @route   GET api/users/login
+// @route   GET users/login
 // @desc    Login User
 // @access  Public
 
@@ -46,17 +35,12 @@ router.post("/login", (req, res) => {
     */
 
     if (password === user.password) {
-      User.findByIdAndUpdate(
-        { email: "testuser@test.com" },
-        { isLoggedIn: true }
-      );
-
       return res.json({
         success: "Success autorization",
         payload: {
+          id: user._id,
           email: user.email,
-          balances: user.balances,
-          isLoggedIn: user.isLoggedIn
+          balances: user.balances
         }
       });
     } else {

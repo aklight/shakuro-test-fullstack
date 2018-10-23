@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions.js";
 
 class Login extends Component {
   constructor() {
@@ -23,14 +26,15 @@ class Login extends Component {
       password: this.state.password
     };
 
-    console.log(user);
+    this.props.loginUser(user, this.props.history);
   }
+
   render() {
     return (
       <div className="login">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-5 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
                 Sign in to your Payment terminal account
@@ -68,4 +72,7 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(
+  null,
+  { loginUser }
+)(withRouter(Login));
