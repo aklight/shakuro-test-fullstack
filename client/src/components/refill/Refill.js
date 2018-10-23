@@ -111,9 +111,9 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-Refill.PropTypes = {
+Refill.propTypes = {
   currentUserId: PropTypes.string.isRequired,
-  currentBalance: PropTypes.number.isRequired,
+  currentBalance: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 

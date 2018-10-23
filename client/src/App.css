@@ -62,7 +62,7 @@
     flex-direction: column;
   }
   .providers-list__item img {
-    width: 40%;
-    height: 40%;
+    width: 80%;
+    height: 80%;
   }
 }

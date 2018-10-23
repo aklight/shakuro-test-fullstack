@@ -3,17 +3,18 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchProviders } from "../../actions/providersActions";
 import Provider from "./Provider.js";
-import PropTypes from "prop-types";
 
 class Providers extends Component {
   constructor(props) {
     super(props);
 
     this.renderProviders = this.renderProviders.bind(this);
+
   }
 
   componentWillMount() {
     this.props.fetchProviders(this.props.history);
+    console.log(this.props.providers)
   }
 
   renderProviders() {
@@ -51,10 +52,6 @@ class Providers extends Component {
 const mapStateToProps = state => ({
   providers: state.providers
 });
-
-Providers.PropTypes = {
-  providers: PropTypes.object.isRequired
-};
 
 export default connect(
   mapStateToProps,
