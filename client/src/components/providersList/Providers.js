@@ -18,6 +18,7 @@ class Providers extends Component {
   }
 
   renderProviders() {
+    console.log(this.props.providers)
     const data = Array.from(this.props.providers);
     return data.map(provider => {
       return (
